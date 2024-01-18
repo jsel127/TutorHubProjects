@@ -1,0 +1,556 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\usepackage{soul}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Introduction To R},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Introduction To R}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\hypertarget{establishing-our-basics}{%
+\section{\texorpdfstring{\textbf{Establishing our
+Basics}}{Establishing our Basics}}\label{establishing-our-basics}}
+
+\textbf{\emph{What is programming?}}
+
+Imagine you are a tutor helping a friend learn a new language. Your
+friend, though very smart, doesn't understand English, so you need to
+use a special language they do understand. This language is like a
+programming language, and your friend is the computer.
+
+\textbf{\emph{What is R?}}
+
+R is a programming language designed for statistical computing and data
+analysis.
+
+\textbf{Terms that might show up}
+
+Compiler: converts the stuff you write to stuff machines can understand
+
+\hypertarget{basic-r-syntax}{%
+\section{\texorpdfstring{\textbf{Basic R
+Syntax}}{Basic R Syntax}}\label{basic-r-syntax}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \ul{\textbf{\emph{Comments}}}: These are used to explain what is going
+  on and ignored by the R interpreter. Comments are preceded the `\#'
+  symbol
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# This is a comment}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \ul{\textbf{\emph{Assignment}}}: You can use the
+  `\texttt{\textless{}-}' or `\texttt{=}' symbol for setting variables
+  equal to something.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{5} 
+\NormalTok{x }\OtherTok{=} \DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \ul{\textbf{\emph{Print Output:}}} The `\texttt{print()}' function is
+  used to display the value of a variable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5
+\end{verbatim}
+\item
+  \ul{\textbf{\emph{Data Types:}}}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    \emph{Numeric}: represent real numbers (integers and decimals)
+  \item
+    \emph{Character}: represent characters or strings (sequence of
+    characters)
+  \end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#character variable, you can use either \textquotesingle{} \textquotesingle{} or " " to surround the characters }
+\NormalTok{char\_var }\OtherTok{=} \StringTok{\textquotesingle{}Hello World\textquotesingle{}}
+\NormalTok{char\_var2 }\OtherTok{=} \StringTok{"Hello World"} 
+
+\FunctionTok{print}\NormalTok{(char\_var)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Hello World"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(char\_var2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Hello World"
+\end{verbatim}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \setcounter{enumii}{2}
+  \tightlist
+  \item
+    \emph{Logical}: represents boolean values (i.e.~`TRUE' or `FALSE')
+  \end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{boolean\_var }\OtherTok{=} \DecValTok{5} \SpecialCharTok{\textgreater{}} \DecValTok{6}
+
+\FunctionTok{print}\NormalTok{(boolean\_var)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \setcounter{enumii}{3}
+  \tightlist
+  \item
+    \emph{Vector}: one-dimensional array that can hold element of the
+    SAME data type
+  \end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \CommentTok{\# Numeric vector}
+\NormalTok{  numeric\_vector }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+  \FunctionTok{print}\NormalTok{(numeric\_vector)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 2 3 4 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \CommentTok{\# Character vector}
+\NormalTok{  char\_vector }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"apple"}\NormalTok{, }\StringTok{"grapes"}\NormalTok{, }\StringTok{"banana"}\NormalTok{)}
+
+  \FunctionTok{print}\NormalTok{(char\_vector)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "apple"  "grapes" "banana"
+\end{verbatim}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \setcounter{enumii}{4}
+  \tightlist
+  \item
+    \ul{\textbf{\emph{Other Data Types (You can skip this :) )}}}
+  \end{enumerate}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Matrix}: a matrix is a 2D array with rows and columns
+  \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Matrix}
+\NormalTok{matrix\_var }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{2}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{3}\NormalTok{)}
+
+\FunctionTok{print}\NormalTok{(matrix\_var)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6
+\end{verbatim}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Array}: multi-dimensional generalization of a matrix
+  \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Creating a 3D array }
+\NormalTok{array\_var }\OtherTok{\textless{}{-}} \FunctionTok{array}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{), }\AttributeTok{dim =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+
+\CommentTok{\# Displaying the array}
+\FunctionTok{print}\NormalTok{(array\_var)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## , , 1
+## 
+##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4
+## 
+## , , 2
+## 
+##      [,1] [,2]
+## [1,]    5    1
+## [2,]    6    2
+\end{verbatim}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{List}: collection of different data types (e.g.~characters,
+    vectors, numeric, etc.)
+  \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# List}
+\NormalTok{list\_var }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{name =} \StringTok{"John"}\NormalTok{, }\AttributeTok{age =} \DecValTok{25}\NormalTok{, }\AttributeTok{is\_student =} \ConstantTok{TRUE}\NormalTok{)}
+
+\FunctionTok{print}\NormalTok{(list\_var)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $name
+## [1] "John"
+## 
+## $age
+## [1] 25
+## 
+## $is_student
+## [1] TRUE
+\end{verbatim}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Data Frame: A data fram is a 2D dimensional table with rows and
+    columns where each column can be a different data type
+  \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Data frame}
+\NormalTok{df\_var }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{name =} \FunctionTok{c}\NormalTok{(}\StringTok{"Alice"}\NormalTok{, }\StringTok{"Bob"}\NormalTok{, }\StringTok{"Charlie"}\NormalTok{), }\AttributeTok{age =} \FunctionTok{c}\NormalTok{(}\DecValTok{25}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{22}\NormalTok{))}
+
+\FunctionTok{print}\NormalTok{(df\_var)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      name age
+## 1   Alice  25
+## 2     Bob  30
+## 3 Charlie  22
+\end{verbatim}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \setcounter{enumii}{5}
+  \tightlist
+  \item
+    \ul{\textbf{\emph{Indexing}}}: R uses 1-base indexing meaning the
+    index of the first element in a vector is 1.
+  \end{enumerate}
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{numeric\_vector[}\DecValTok{1}\NormalTok{]  }\CommentTok{\# Access the first element}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{char\_vector[}\DecValTok{2}\NormalTok{]    }\CommentTok{\# Access the second element}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "grapes"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  \ul{\textbf{\emph{Functions}}}: functions are defined using the
+  `function()' keyword. The `return()' statement is used to return a
+  value from a function
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Example of a function that adds two numbers together}
+\NormalTok{add\_numbers }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(a, b) \{}
+\NormalTok{  result }\OtherTok{\textless{}{-}}\NormalTok{ a }\SpecialCharTok{+}\NormalTok{ b}
+  \FunctionTok{return}\NormalTok{(result)}
+\NormalTok{\}}
+
+\CommentTok{\# Call the function}
+\NormalTok{sum\_result }\OtherTok{\textless{}{-}} \FunctionTok{add\_numbers}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(sum\_result)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8
+\end{verbatim}
+
+\hypertarget{using-r-for-statistics}{%
+\section{\texorpdfstring{\textbf{Using R for
+Statistics}}{Using R for Statistics}}\label{using-r-for-statistics}}
+
+\hypertarget{descriptive-statistics}{%
+\subsection{\texorpdfstring{\textbf{Descriptive
+Statistics}}{Descriptive Statistics}}\label{descriptive-statistics}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1852}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4815}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Statistics Concept
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Function in R
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+parameters
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Mean & mean(x) & x: vector containing data of interest \\
+Median & median(x) & x: vector containing data of interest \\
+sample standard deviation & sd(x) & x: vector containing data of
+interest \\
+sample variation & var(x) & x: vector containing data of interest \\
+range & range(x) & x: vector containing data of interest \\
+Five-number summary & summary(x) & x: vector containing data of
+interest \\
+\end{longtable}
+
+\textbf{Data Visualization}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2895}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1974}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5132}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Statistics Concept
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Function in R
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+parameters
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+histogram & hist(x) & x: vector containing data of interest \\
+box-and-whisker plot & boxplot(x) & x: vector containing data of
+interest \\
+& & x: vector containing data of interest \\
+\end{longtable}
+
+\textbf{Probability Distribution}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4857}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Statistics Concept
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Function in R
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Output
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Normal distribution & pnorm(x, mean = mean, sd = standard deviation) &
+probability of a value in the sample being less than or equal to x \\
+Binomial Distriubution & dbinom() & probability of a value being equal
+to x \\
+& pbinom() & \\
+Geometric Distribution & dgeom() & \\
+& pgeom() & \\
+\end{longtable}
+
+\textbf{Hypothesis Testing}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2532}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7468}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Statistics Concept
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Function in R
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+z-test & z.test(data, mu = population mean, sigma = population sd) \\
+t-test & t.test(data) \\
+\end{longtable}
+
+\hypertarget{other-resources}{%
+\section{Other Resources}\label{other-resources}}
+
+\begin{itemize}
+\tightlist
+\item
+  \url{https://www.w3schools.com/r/r_stat_intro.asp}
+\end{itemize}
+
+\end{document}
