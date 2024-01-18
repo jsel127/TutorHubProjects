@@ -10,7 +10,7 @@ This folder contains a comprehensive set of documents created to assist tutors i
 #### Contents:
 - [**Drop-in Tutoring Expectations**](Documents-Built/Drop-in_Expectations.pdf): Comprehensive expectations regarding drop-in tutor responsibilities encompassing both logistical and tutoring-related facets.
 - [**New Tutors Drop-in Shadowing Packet**](Documents-Built/Drop-in_Shadowing-Sheet.pdf): Outline for taking notes during user shadowing, aimed at assessing observations made while learning tutoring techniques from experienced tutors.
-- [**Embedded Tutors Toolkit**](Documents-Build/Embedded_Planning-Sheet.pdf): Strategic planning sheet designed for embedded tutors to prepare for their sessions to enhance support for students in their respective courses.
+- [**Embedded Tutors Toolkit**](Documents-Built/Embedded_Planning-Sheet.pdf): Strategic planning sheet designed for embedded tutors to prepare for their sessions to enhance support for students in their respective courses.
 
 ### 2. R-StatsTutorial
 This folder hosts a project dedicated to statistics tutors who want to provide students with a tutorial on using R. The tutorial is designed to assist students whose professors incorporate R into their courses.
